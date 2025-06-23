@@ -49,6 +49,7 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.interceptor)
     implementation(libs.gson)
 
     implementation(libs.room.runtime)

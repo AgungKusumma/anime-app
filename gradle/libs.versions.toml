@@ -13,6 +13,7 @@ constraintlayout = "2.2.1"
 hilt = "2.48"
 ksp = "2.0.21-1.0.27"
 retrofit = "2.9.0"
+interceptor = "4.9.3"
 gson = "2.10.1"
 room = "2.6.1"
 coroutines = "1.7.3"
@@ -36,6 +37,7 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 # Networking - Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "interceptor" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 # Room Database
