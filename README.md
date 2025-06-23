@@ -22,7 +22,7 @@ The project is structured using modularization and clean separation of concerns:
 │   └── featureFavorite/ # Favorite screen: local database + dynamic delivery
 
 ```
-
+---
 ## 🚀 Features
 
 - Browse list of anime
@@ -41,18 +41,6 @@ The project is structured using modularization and clean separation of concerns:
 | **Retrofit + Gson**  | Network layer                        |
 | **Kotlin Coroutines & Flow** | Asynchronous and reactive operations |
 | **Navigation Component** | In-app navigation               |
-
-## 🛠️ Built With
-
-| Tool/Library         | Function                             |
-|----------------------|--------------------------------------|
-| **Kotlin**           | Main programming language            |
-| **Hilt**             | Dependency injection                 |
-| **Room**             | Local database                       |
-| **Retrofit + Gson**  | Network layer                        |
-| **Coroutines + Flow**| Asynchronous and reactive operations |
-| **Navigation**       | In-app navigation                    |
-| **ViewBinding**      | Safe access to views                 |
 
 ---
 
