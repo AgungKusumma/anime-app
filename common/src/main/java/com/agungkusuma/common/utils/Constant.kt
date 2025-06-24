@@ -18,4 +18,11 @@ object Constants {
         const val ANIME_LIST = "anime"
         const val ANIME_DETAIL = "anime/{id}"
     }
+
+    object KeyParam {
+        const val KEY_FILE = "file"
+        const val KEY_IMAGE = "image"
+        const val KEY_DATA = "data"
+        const val KEY_EXTRAS = "extras"
+    }
 }
