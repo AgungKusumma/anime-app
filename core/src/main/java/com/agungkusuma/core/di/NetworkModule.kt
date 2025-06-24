@@ -1,8 +1,8 @@
 package com.agungkusuma.core.di
 
 import android.content.Context
+import com.agungkusuma.common.utils.Constants.ApiComponents.BASE_URL
 import com.agungkusuma.core.data.source.remote.network.ApiService
-import com.agungkusuma.core.utils.Constants.ApiComponents.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

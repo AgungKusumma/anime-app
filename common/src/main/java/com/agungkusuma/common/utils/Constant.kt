@@ -1,4 +1,4 @@
-package com.agungkusuma.core.utils
+package com.agungkusuma.common.utils
 
 object Constants {
     const val PREF_FILE_NAME = "Preferences"

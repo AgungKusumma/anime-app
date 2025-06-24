@@ -1,0 +1,21 @@
+package com.agungkusuma.core.data.repository
+
+import com.agungkusuma.core.data.mapper.toDomain
+import com.agungkusuma.core.data.source.remote.network.ApiService
+import com.agungkusuma.core.domain.model.Anime
+import com.agungkusuma.core.domain.repository.AnimeRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+class AnimeRepositoryImpl @Inject constructor(
+    private val apiService: ApiService
+) : AnimeRepository {
+
+
+    override fun getAnimeList(): Flow<List<Anime>> = flow {
+        val response = apiService.getAnimeList()
+        val animeList = response.data.map { it.toDomain() }
+        emit(animeList)
+    }
+}

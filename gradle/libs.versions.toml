@@ -19,6 +19,10 @@ room = "2.6.1"
 coroutines = "1.7.3"
 lifecycle = "2.7.0"
 navigation = "2.7.7"
+legacySupportV4 = "1.0.0"
+lifecycleLivedataKtx = "2.9.1"
+fragmentKtx = "1.8.8"
+glide = "4.15.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,6 +60,13 @@ lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-kt
 # Navigation Component
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+
+# Glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
