@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.agungkusuma.common.R
 import com.agungkusuma.common.navigation.FeaturesNavigation
@@ -17,25 +16,22 @@ import com.agungkusuma.featuredetail.databinding.FragmentDetailBinding
 import com.agungkusuma.featuredetail.presentation.mapper.toUiModel
 import com.agungkusuma.featuredetail.presentation.model.AnimeDetailUiModel
 import com.bumptech.glide.Glide
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
-    @Inject
-    lateinit var featuresNavigation: FeaturesNavigation
+    private val featuresNavigation: FeaturesNavigation by inject()
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: DetailViewModel by viewModels()
+    private val viewModel: DetailViewModel by viewModel()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -86,8 +82,9 @@ class DetailFragment : Fragment() {
                         binding.errorAnimation.visibility = View.VISIBLE
                         binding.errorAnimation.playAnimation()
 
-                        Toast.makeText(requireContext(), getString(R.string.error), Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(
+                            requireContext(), getString(R.string.error), Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
@@ -95,9 +92,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun setupDetailData(data: AnimeDetailUiModel) = with(binding) {
-        Glide.with(requireContext())
-            .load(data.imageUrl)
-            .into(binding.ivAnime)
+        Glide.with(requireContext()).load(data.imageUrl).into(binding.ivAnime)
 
         binding.tvTitle.text = data.title
         binding.tvTypeEpisodes.text = data.typeAndEpisodes

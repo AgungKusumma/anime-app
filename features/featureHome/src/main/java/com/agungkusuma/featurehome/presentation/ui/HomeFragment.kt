@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agungkusuma.common.R
@@ -18,16 +17,14 @@ import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.featurehome.databinding.FragmentHomeBinding
 import com.agungkusuma.featurehome.presentation.adapter.AnimeAdapter
 import com.agungkusuma.featurehome.presentation.mapper.toUi
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    @Inject
-    lateinit var featuresNavigation: FeaturesNavigation
+    private val featuresNavigation: FeaturesNavigation by inject()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -41,7 +38,7 @@ class HomeFragment : Fragment() {
             })
     }
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

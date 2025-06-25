@@ -1,7 +1,31 @@
 package com.agungkusuma.animeapp
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.agungkusuma.animeapp.di.navigationModule
+import com.agungkusuma.core.di.coreModule
+import com.agungkusuma.core.di.networkModule
+import com.agungkusuma.featuredetail.di.detailModule
+import com.agungkusuma.featurehome.di.homeModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
-@HiltAndroidApp
-class AnimeApp : Application()
+class AnimeApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidLogger(Level.NONE)
+            androidContext(this@AnimeApp)
+            modules(
+                listOf(
+                    coreModule,
+                    networkModule,
+                    navigationModule,
+                    homeModule,
+                    detailModule
+                )
+            )
+        }
+    }
+}

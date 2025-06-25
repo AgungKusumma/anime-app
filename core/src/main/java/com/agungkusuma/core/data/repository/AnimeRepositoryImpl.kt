@@ -7,9 +7,8 @@ import com.agungkusuma.core.domain.model.AnimeDetail
 import com.agungkusuma.core.domain.repository.AnimeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
-class AnimeRepositoryImpl @Inject constructor(
+class AnimeRepositoryImpl(
     private val apiService: ApiService
 ) : AnimeRepository {
 
