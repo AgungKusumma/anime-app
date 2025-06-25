@@ -1,6 +1,6 @@
 # 📱 AnimeApp
 
-AnimeApp is a modular Android application built using modern development practices including Clean Architecture, Hilt for dependency injection, Room for local data storage, and Kotlin Coroutines with Flow for reactive programming. The app also utilizes dynamic feature modules for optimized delivery.
+AnimeApp is a modular Android application built using modern development practices including Clean Architecture, Koin for dependency injection, Room for local data storage, and Kotlin Coroutines with Flow for reactive programming. The app also utilizes dynamic feature modules for optimized delivery.
 
 ---
 
@@ -33,14 +33,14 @@ The project is structured using modularization and clean separation of concerns:
 ---
 ## 🛠️ Built With
 
-| Tool/Library         | Function                             |
-|----------------------|--------------------------------------|
-| **Kotlin**           | Main programming language            |
-| **Hilt**             | Dependency injection                 |
-| **Room**             | Local database                       |
-| **Retrofit + Gson**  | Network layer                        |
+| Tool/Library                 | Function                             |
+|------------------------------|--------------------------------------|
+| **Kotlin**                   | Main programming language            |
+| **Koin**                     | Dependency injection                 |
+| **Room**                     | Local database                       |
+| **Retrofit + Gson**          | Network layer                        |
 | **Kotlin Coroutines & Flow** | Asynchronous and reactive operations |
-| **Navigation Component** | In-app navigation               |
+| **Navigation Component**     | In-app navigation               |
 
 ---
 
