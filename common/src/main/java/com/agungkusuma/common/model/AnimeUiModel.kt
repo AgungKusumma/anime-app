@@ -1,4 +1,4 @@
-package com.agungkusuma.featurehome.presentation.model
+package com.agungkusuma.common.model
 
 data class AnimeUiModel(
     val id: Int,

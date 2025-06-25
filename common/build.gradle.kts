@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -45,6 +46,9 @@ dependencies {
 
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

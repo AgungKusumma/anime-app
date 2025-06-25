@@ -10,12 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agungkusuma.common.R
+import com.agungkusuma.common.adapter.AnimeAdapter
 import com.agungkusuma.common.navigation.FeaturesNavigation
 import com.agungkusuma.common.utils.ActionState
 import com.agungkusuma.common.utils.Constants
 import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.featurehome.databinding.FragmentHomeBinding
-import com.agungkusuma.featurehome.presentation.adapter.AnimeAdapter
 import com.agungkusuma.featurehome.presentation.mapper.toUi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -35,7 +35,8 @@ class HomeFragment : Fragment() {
                 featuresNavigation.openDetailPage(
                     bundleOf(Constants.KeyParam.KEY_DATA to it.id)
                 )
-            })
+            },
+        )
     }
 
     private val viewModel: HomeViewModel by viewModel()

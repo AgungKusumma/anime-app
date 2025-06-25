@@ -1,12 +1,12 @@
-package com.agungkusuma.featurehome.presentation.adapter
+package com.agungkusuma.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.agungkusuma.featurehome.databinding.ItemAnimeBinding
-import com.agungkusuma.featurehome.presentation.model.AnimeUiModel
+import com.agungkusuma.common.databinding.ItemAnimeBinding
+import com.agungkusuma.common.model.AnimeUiModel
 import com.bumptech.glide.Glide
 
 class AnimeAdapter(

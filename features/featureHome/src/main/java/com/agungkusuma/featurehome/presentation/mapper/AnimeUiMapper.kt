@@ -1,7 +1,7 @@
 package com.agungkusuma.featurehome.presentation.mapper
 
 import com.agungkusuma.core.domain.model.Anime
-import com.agungkusuma.featurehome.presentation.model.AnimeUiModel
+import com.agungkusuma.common.model.AnimeUiModel
 
 fun Anime.toUi(): AnimeUiModel {
     return AnimeUiModel(
