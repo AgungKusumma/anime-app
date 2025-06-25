@@ -41,4 +41,9 @@ class AnimeRepositoryImpl(
         val entity = anime.toEntity()
         localDataSource.insertAnime(entity)
     }
+
+    override suspend fun deleteAnime(anime: Anime) {
+        val entity = anime.toEntity()
+        localDataSource.deleteAnime(entity)
+    }
 }

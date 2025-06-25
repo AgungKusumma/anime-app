@@ -11,4 +11,6 @@ class LocalDataSource(private val animeDao: AnimeDao) {
     fun getAnimeById(id: Int): Flow<AnimeEntity?> = animeDao.getAnimeById(id)
 
     suspend fun insertAnime(anime: AnimeEntity) = animeDao.insertAnime(anime)
+
+    suspend fun deleteAnime(anime: AnimeEntity) = animeDao.deleteAnime(anime)
 }

@@ -1,6 +1,5 @@
 package com.agungkusuma.featuredetail.presentation.ui
 
-import DetailViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -99,6 +98,20 @@ class DetailFragment : Fragment() {
                 setStatusFavorite(isFav)
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.toastEvent.collect { isFav ->
+                if (isFav) {
+                    Toast.makeText(
+                        requireContext(), getString(R.string.fav_added), Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(), getString(R.string.fav_removed), Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
 
     private fun setupDetailData(data: AnimeDetailUiModel) = with(binding) {
@@ -115,14 +128,8 @@ class DetailFragment : Fragment() {
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
             binding.ivFavorite.setImageResource(R.drawable.ic_fav)
-            Toast.makeText(
-                requireContext(), getString(R.string.fav_added), Toast.LENGTH_SHORT
-            ).show()
         } else {
             binding.ivFavorite.setImageResource(R.drawable.ic_fav_outline)
-            Toast.makeText(
-                requireContext(), getString(R.string.fav_removed), Toast.LENGTH_SHORT
-            ).show()
         }
     }
 

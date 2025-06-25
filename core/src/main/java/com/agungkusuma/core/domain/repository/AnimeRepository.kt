@@ -10,4 +10,5 @@ interface AnimeRepository {
     fun getFavoriteAnime(): Flow<List<Anime>>
     fun getAnimeById(id: Int): Flow<Anime?>
     suspend fun insertAnime(anime: Anime)
+    suspend fun deleteAnime(anime: Anime)
 }
