@@ -16,6 +16,15 @@ abstract class BaseNavigatorImpl : BaseNavigator {
     private var navHostFragment: NavHostFragment? = null
     override var navController: NavController? = null
 
+    fun openActivity(className: String, bundle: Bundle? = null) {
+        val context = navController?.context ?: return
+        val intent = android.content.Intent().apply {
+            setClassName(context.packageName, className)
+            bundle?.let { putExtras(it) }
+        }
+        context.startActivity(intent)
+    }
+
     override fun openScreen(@IdRes id: Int, bundle: Bundle?, @IdRes startDestination: Int?) {
         navController?.navigateSafe(id, bundle)
 

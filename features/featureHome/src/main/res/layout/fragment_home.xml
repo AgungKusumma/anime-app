@@ -36,12 +36,21 @@
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_fav" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_animation"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:visibility="gone"
         android:layout_gravity="center"
+        android:visibility="gone"
         app:lottie_autoPlay="false"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading" />
@@ -50,8 +59,8 @@
         android:id="@+id/error_animation"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:visibility="gone"
         android:layout_gravity="center"
+        android:visibility="gone"
         app:lottie_autoPlay="false"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/empty" />

@@ -50,9 +50,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupAction()
         setupRecyclerView()
         observeAnime()
         viewModel.fetchAnimeList()
+    }
+
+    private fun setupAction() = with(binding) {
+        fabFav.setOnClickListener {
+            featuresNavigation.openFavoritePage()
+        }
     }
 
     private fun setupRecyclerView() {
