@@ -8,10 +8,7 @@ class LocalDataSource(private val animeDao: AnimeDao) {
 
     fun getFavoriteAnime(): Flow<List<AnimeEntity>> = animeDao.getFavoriteAnime()
 
-    suspend fun insertAnime(anime: AnimeEntity) = animeDao.insertAnime(anime)
+    fun getAnimeById(id: Int): Flow<AnimeEntity?> = animeDao.getAnimeById(id)
 
-    fun updateFavoriteAnime(anime: AnimeEntity, newState: Boolean) {
-        anime.isFavorite = newState
-        animeDao.updateFavoriteAnime(anime)
-    }
+    suspend fun insertAnime(anime: AnimeEntity) = animeDao.insertAnime(anime)
 }

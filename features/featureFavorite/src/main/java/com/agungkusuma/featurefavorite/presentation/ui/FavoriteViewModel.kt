@@ -1,6 +1,6 @@
 package com.agungkusuma.featurefavorite.presentation.ui
 
-import GetFavoriteAnimeUseCase
+import com.agungkusuma.featurefavorite.domain.usecase.GetFavoriteAnimeUseCase
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.agungkusuma.core.domain.model.Anime

@@ -1,11 +1,11 @@
-package com.agungkusuma.featurefavorite.domain.usecase
+package com.agungkusuma.featuredetail.domain.usecase
 
 import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.core.domain.repository.AnimeRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetFavoriteAnimeUseCase(
+class GetAnimeLocalByIdUseCase(
     private val repository: AnimeRepository
 ) {
-    operator fun invoke(): Flow<List<Anime>> = repository.getFavoriteAnime()
+    operator fun invoke(id: Int): Flow<Anime?> = repository.getAnimeById(id)
 }

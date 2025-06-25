@@ -7,7 +7,6 @@ import com.agungkusuma.core.data.source.remote.RemoteDataSource
 import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.core.domain.model.AnimeDetail
 import com.agungkusuma.core.domain.repository.AnimeRepository
-import com.agungkusuma.core.utils.AppExecutors
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
@@ -15,7 +14,6 @@ import kotlinx.coroutines.flow.map
 class AnimeRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
 ) : AnimeRepository {
 
     override fun getAnimeList(): Flow<List<Anime>> = flow {
@@ -35,15 +33,12 @@ class AnimeRepositoryImpl(
             list.map { it.toDomain() }
         }
 
+    override fun getAnimeById(id: Int): Flow<Anime?> {
+        return localDataSource.getAnimeById(id).map { it?.toDomain() }
+    }
+
     override suspend fun insertAnime(anime: Anime) {
         val entity = anime.toEntity()
         localDataSource.insertAnime(entity)
-    }
-
-    override fun updateFavoriteAnime(anime: Anime, state: Boolean) {
-        val entity = anime.toEntity()
-        appExecutors.diskIO().execute {
-            localDataSource.updateFavoriteAnime(entity, state)
-        }
     }
 }

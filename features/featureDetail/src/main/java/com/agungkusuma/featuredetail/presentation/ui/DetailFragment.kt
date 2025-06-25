@@ -1,5 +1,6 @@
 package com.agungkusuma.featuredetail.presentation.ui
 
+import DetailViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -55,8 +56,7 @@ class DetailFragment : Fragment() {
         }
 
         ivFavorite.setOnClickListener {
-            viewModel.insertAnime()
-            setStatusFavorite(true)
+            viewModel.toggleFavorite()
         }
     }
 
@@ -95,22 +95,8 @@ class DetailFragment : Fragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.insertState.collectLatest { state ->
-                when (state) {
-                    is ActionState.Success -> {
-                        Toast.makeText(
-                            requireContext(), getString(R.string.fav_added), Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    is ActionState.Error -> {
-                        Toast.makeText(
-                            requireContext(), getString(R.string.fav_add_fail), Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    else -> {}
-                }
+            viewModel.isFavorited.collectLatest { isFav ->
+                setStatusFavorite(isFav)
             }
         }
     }
@@ -129,8 +115,14 @@ class DetailFragment : Fragment() {
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
             binding.ivFavorite.setImageResource(R.drawable.ic_fav)
+            Toast.makeText(
+                requireContext(), getString(R.string.fav_added), Toast.LENGTH_SHORT
+            ).show()
         } else {
             binding.ivFavorite.setImageResource(R.drawable.ic_fav_outline)
+            Toast.makeText(
+                requireContext(), getString(R.string.fav_removed), Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

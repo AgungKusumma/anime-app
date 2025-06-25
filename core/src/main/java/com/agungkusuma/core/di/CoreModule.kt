@@ -33,7 +33,6 @@ val repositoryModule = module {
         AnimeRepositoryImpl(
             get(),
             get(),
-            get()
         )
     }
 }
