@@ -8,5 +8,6 @@ data class Anime(
     val type: String,
     val episodes: Int?,
     val aired: String,
-    val genres: List<String>
+    val genres: List<String>,
+    val isFavorite: Boolean = false
 )

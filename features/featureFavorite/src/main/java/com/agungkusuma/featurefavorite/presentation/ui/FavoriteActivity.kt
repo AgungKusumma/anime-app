@@ -1,12 +1,15 @@
 package com.agungkusuma.featurefavorite.presentation.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agungkusuma.common.adapter.AnimeAdapter
+import com.agungkusuma.common.mapper.toUi
 import com.agungkusuma.common.model.AnimeUiModel
 import com.agungkusuma.featurefavorite.R
 import com.agungkusuma.featurefavorite.databinding.ActivityFavoriteBinding
@@ -22,8 +25,7 @@ class FavoriteActivity : AppCompatActivity() {
 
     private val animeAdapter: AnimeAdapter by lazy {
         AnimeAdapter(
-            onItemClick = {
-            },
+            onItemClick = {},
         )
     }
 
@@ -41,9 +43,17 @@ class FavoriteActivity : AppCompatActivity() {
         }
 
         loadKoinModules(favoriteModule)
-        setupData()
+//        setupData()
         setupRecyclerView()
         setupAction()
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.favoriteAnime.collect { list ->
+                val dataFav = list.map { it.toUi() }
+                Log.e("FavoriteActivity", "Data FAV: $dataFav")
+                animeAdapter.submitList(dataFav)
+            }
+        }
     }
 
     private fun setupData() {

@@ -1,5 +1,6 @@
 package com.agungkusuma.featuredetail.presentation.mapper
 
+import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.core.domain.model.AnimeDetail
 import com.agungkusuma.featuredetail.presentation.model.AnimeDetailUiModel
 
@@ -14,3 +15,18 @@ fun AnimeDetail.toUiModel(): AnimeDetailUiModel {
         aired = aired
     )
 }
+
+fun AnimeDetail.toDomainModel(): Anime {
+    return Anime(
+        id = this.id,
+        title = this.title,
+        imageUrl = this.imageUrl,
+        score = this.score,
+        type = this.type,
+        aired = this.aired,
+        episodes = this.episodes,
+        genres = this.genres,
+        isFavorite = this.isFavorite
+    )
+}
+

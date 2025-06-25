@@ -1,8 +1,8 @@
 package com.agungkusuma.core.di
 
 import android.content.Context
-import com.agungkusuma.common.utils.Constants.ApiComponents.BASE_URL
 import com.agungkusuma.core.data.source.remote.network.ApiService
+import com.agungkusuma.core.utils.Constants.ApiComponents.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
@@ -27,8 +27,8 @@ val networkModule = module {
 
     single {
         OkHttpClient.Builder().cache(get()).addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }).connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build()
+            level = HttpLoggingInterceptor.Level.BODY
+        }).connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build()
     }
 
     single<Retrofit> {

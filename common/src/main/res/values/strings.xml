@@ -4,4 +4,8 @@
     <string name="anime_title">Anime Title</string>
     <string name="anime_score">⭐ 8.7</string>
     <string name="error">Error. Please check your internet connection!</string>
+    <string name="fav_added">Added to favorites</string>
+    <string name="fav_add_fail">Add failed</string>
+    <string name="fav_removed">Removed from favorites</string>
+    <string name="fav_remove_fail">Remove failed</string>
 </resources>

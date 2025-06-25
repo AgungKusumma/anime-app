@@ -13,10 +13,10 @@ import com.agungkusuma.common.R
 import com.agungkusuma.common.adapter.AnimeAdapter
 import com.agungkusuma.common.navigation.FeaturesNavigation
 import com.agungkusuma.common.utils.ActionState
-import com.agungkusuma.common.utils.Constants
+import com.agungkusuma.core.utils.Constants
 import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.featurehome.databinding.FragmentHomeBinding
-import com.agungkusuma.featurehome.presentation.mapper.toUi
+import com.agungkusuma.common.mapper.toUi
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject

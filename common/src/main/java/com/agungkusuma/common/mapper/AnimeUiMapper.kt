@@ -1,4 +1,4 @@
-package com.agungkusuma.featurehome.presentation.mapper
+package com.agungkusuma.common.mapper
 
 import com.agungkusuma.core.domain.model.Anime
 import com.agungkusuma.common.model.AnimeUiModel

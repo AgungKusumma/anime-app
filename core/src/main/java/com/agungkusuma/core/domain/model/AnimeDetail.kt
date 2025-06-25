@@ -15,5 +15,6 @@ data class AnimeDetail(
     val aired: String,
     val genres: List<String>,
     val themes: List<String>,
-    val demographics: List<String>
+    val demographics: List<String>,
+    val isFavorite: Boolean = false
 )

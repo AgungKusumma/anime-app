@@ -7,4 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface AnimeRepository {
     fun getAnimeList(): Flow<List<Anime>>
     fun getAnimeDetail(id: Int): Flow<AnimeDetail>
+    fun getFavoriteAnime(): Flow<List<Anime>>
+    suspend fun insertAnime(anime: Anime)
+    fun updateFavoriteAnime(anime: Anime, state: Boolean)
 }
