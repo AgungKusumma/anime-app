@@ -1,5 +1,7 @@
 # 📱 AnimeApp
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/AgungKusumma/anime-app/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/AgungKusumma/anime-app/tree/master)
+
 AnimeApp is a modular Android application built using modern development practices including Clean Architecture, Koin for dependency injection, Room for local data storage, and Kotlin Coroutines with Flow for reactive programming. The app also utilizes dynamic feature modules for optimized delivery.
 
 ---
