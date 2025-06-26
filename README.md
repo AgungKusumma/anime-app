@@ -42,7 +42,7 @@ The project is structured using modularization and clean separation of concerns:
 | **Room**                     | Local database                       |
 | **Retrofit + Gson**          | Network layer                        |
 | **Kotlin Coroutines & Flow** | Asynchronous and reactive operations |
-| **Navigation Component**     | In-app navigation               |
+| **Navigation Component**     | In-app navigation                    |
 
 ---
 
