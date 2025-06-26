@@ -8,16 +8,21 @@ import com.agungkusuma.core.data.source.local.room.AnimeDao
 import com.agungkusuma.core.data.source.local.room.AnimeDatabase
 import com.agungkusuma.core.data.source.remote.RemoteDataSource
 import com.agungkusuma.core.domain.repository.AnimeRepository
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import org.koin.dsl.module
 
 val databaseModule = module {
 
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("animeapp".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             get<Application>(),
             AnimeDatabase::class.java,
             "Anime.db"
         ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
             .build()
     }
 

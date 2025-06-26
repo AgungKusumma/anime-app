@@ -53,11 +53,16 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
 
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
+
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
 
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.runtime)
+
+    implementation(libs.sqlcipher)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
