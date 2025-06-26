@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.agungkusuma.common.R
 import com.agungkusuma.common.databinding.ItemAnimeBinding
 import com.agungkusuma.common.model.AnimeUiModel
 import com.bumptech.glide.Glide
@@ -18,11 +19,9 @@ class AnimeAdapter(
 
         fun bind(item: AnimeUiModel) {
             binding.tvTitle.text = item.title
-            binding.tvScore.text = "⭐ ${item.score}"
+            binding.tvScore.text = itemView.context.getString(R.string.score_format, item.score)
 
-            Glide.with(binding.root)
-                .load(item.imageUrl)
-                .into(binding.imgAnime)
+            Glide.with(binding.root).load(item.imageUrl).into(binding.imgAnime)
 
             binding.root.setOnClickListener {
                 onItemClick(item)
