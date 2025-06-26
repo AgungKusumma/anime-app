@@ -6,7 +6,7 @@ import com.agungkusuma.featuredetail.presentation.model.AnimeDetailUiModel
 
 fun AnimeDetail.toUiModel(): AnimeDetailUiModel {
     return AnimeDetailUiModel(
-        title = titleEnglish ?: titleJapanese ?: title,
+        title = title,
         imageUrl = imageUrl,
         typeAndEpisodes = "$type - ${episodes ?: "?"} eps",
         score = score?.toString() ?: "-",
