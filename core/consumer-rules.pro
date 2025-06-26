@@ -67,20 +67,6 @@
 -keep,allowobfuscation,allowshrinking class retrofit2.Response
 -keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
 
-##--------------- Glide ---------------
-# Keep Glide modules and internal rewinder class used during image loading.
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep class * extends com.bumptech.glide.module.AppGlideModule {
-    <init>(...);
-}
--keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
-    **[] $VALUES;
-    public *;
-}
--keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
-    *** rewind();
-}
-
 ##--------------- Entity & DAO (Room) ---------------
 # Keep local database entities and DAO interfaces.
 -keep class com.agungkusuma.core.data.source.local.entity.** { *; }
