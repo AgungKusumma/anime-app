@@ -1,19 +1,20 @@
 package com.agungkusuma.featurefavorite.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agungkusuma.common.adapter.AnimeAdapter
 import com.agungkusuma.common.mapper.toUi
-import com.agungkusuma.common.model.AnimeUiModel
 import com.agungkusuma.featurefavorite.R
 import com.agungkusuma.featurefavorite.databinding.ActivityFavoriteBinding
 import com.agungkusuma.featurefavorite.di.favoriteModule
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -43,47 +44,17 @@ class FavoriteActivity : AppCompatActivity() {
         }
 
         loadKoinModules(favoriteModule)
-//        setupData()
         setupRecyclerView()
         setupAction()
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.favoriteAnime.collect { list ->
-                val dataFav = list.map { it.toUi() }
-                Log.e("FavoriteActivity", "Data FAV: $dataFav")
-                animeAdapter.submitList(dataFav)
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.favoriteAnime.collect { list ->
+                    val dataFav = list.map { it.toUi() }
+                    animeAdapter.submitList(dataFav)
+                }
             }
         }
-    }
-
-    private fun setupData() {
-        val dummyAnime = listOf(
-            AnimeUiModel(
-                id = 1,
-                title = "Naruto",
-                score = 8.5.toString(),
-                imageUrl = "https://cdn.myanimelist.net/images/anime/1141/142503.jpg",
-                type = "a",
-                aired = "s"
-            ),
-            AnimeUiModel(
-                id = 1,
-                title = "Naruto",
-                score = 8.5.toString(),
-                imageUrl = "https://cdn.myanimelist.net/images/anime/1141/142503.jpg",
-                type = "a",
-                aired = "s"
-            ),
-            AnimeUiModel(
-                id = 1,
-                title = "Naruto",
-                score = 8.5.toString(),
-                imageUrl = "https://cdn.myanimelist.net/images/anime/1141/142503.jpg",
-                type = "a",
-                aired = "s"
-            ),
-        )
-        animeAdapter.submitList(dummyAnime)
     }
 
     private fun setupAction() {

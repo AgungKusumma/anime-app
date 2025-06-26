@@ -115,14 +115,14 @@ class DetailFragment : Fragment() {
     }
 
     private fun setupDetailData(data: AnimeDetailUiModel) = with(binding) {
-        Glide.with(requireContext()).load(data.imageUrl).into(binding.ivAnime)
+        Glide.with(requireContext()).load(data.imageUrl).into(ivAnime)
 
-        binding.tvTitle.text = data.title
-        binding.tvTypeEpisodes.text = data.typeAndEpisodes
-        binding.tvScore.text = "Score: ⭐ ${data.score}"
-        binding.tvGenres.text = "Genres: ${data.genres}"
-        binding.tvAired.text = "Aired: ${data.aired}"
-        binding.tvSynopsis.text = data.synopsis
+        tvTitle.text = data.title
+        tvTypeEpisodes.text = data.typeAndEpisodes
+        tvScore.text = getString(R.string.score_format, data.score)
+        tvGenres.text = getString(R.string.genres_format, data.genres)
+        tvAired.text = getString(R.string.aired_format, data.aired)
+        tvSynopsis.text = data.synopsis
     }
 
     private fun setStatusFavorite(statusFavorite: Boolean) {

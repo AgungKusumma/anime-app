@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="top_anime">Top Anime</string>
+    <string name="favorite_anime">Favorite Anime</string>
     <string name="anime_title">Anime Title</string>
+    <string name="header_image_desc">Header image showing top anime highlight</string>
     <string name="anime_score">⭐ 8.7</string>
     <string name="error">Error. Please check your internet connection!</string>
     <string name="fav_added">Added to favorites</string>
     <string name="fav_removed">Removed from favorites</string>
+    <string name="score_format">Score: ⭐ %s</string>
+    <string name="genres_format">Genres: %s</string>
+    <string name="aired_format">Aired: %s</string>
 </resources>

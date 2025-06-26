@@ -8,7 +8,6 @@ import com.agungkusuma.core.data.source.local.room.AnimeDao
 import com.agungkusuma.core.data.source.local.room.AnimeDatabase
 import com.agungkusuma.core.data.source.remote.RemoteDataSource
 import com.agungkusuma.core.domain.repository.AnimeRepository
-import com.agungkusuma.core.utils.AppExecutors
 import org.koin.dsl.module
 
 val databaseModule = module {
@@ -28,7 +27,6 @@ val databaseModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
-    factory { AppExecutors() }
     single<AnimeRepository> {
         AnimeRepositoryImpl(
             get(),

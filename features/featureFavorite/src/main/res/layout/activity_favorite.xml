@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Favorite Anime"
+            android:text="@string/favorite_anime"
             android:textColor="@color/color_primary_text"
             android:textSize="20sp"
             android:textStyle="bold" />
