@@ -69,4 +69,10 @@ class FavoriteActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@FavoriteActivity)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.rvAnime.adapter = null
+        animeAdapter.submitList(null)
+    }
 }

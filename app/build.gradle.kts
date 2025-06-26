@@ -61,6 +61,7 @@ dependencies {
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+    debugImplementation(libs.leakcanary)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

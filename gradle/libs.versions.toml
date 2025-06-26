@@ -24,6 +24,7 @@ lifecycleLivedataKtx = "2.9.1"
 fragmentKtx = "1.8.8"
 glide = "4.15.1"
 lottie = "6.6.2"
+leakcanary = "2.12"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -70,6 +71,9 @@ glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.re
 
 # Lottie Animation
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+
+# Memory Leak Detection
+leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

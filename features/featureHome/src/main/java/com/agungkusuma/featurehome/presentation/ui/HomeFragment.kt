@@ -108,6 +108,8 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         binding.loadingAnimation.cancelAnimation()
         binding.errorAnimation.cancelAnimation()
+        binding.rvAnime.adapter = null
+        animeAdapter.submitList(null)
         _binding = null
     }
 }
