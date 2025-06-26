@@ -2,8 +2,8 @@ version: 2.1
 
 jobs:
   build:
-    machine:
-      image: android:2023.09.1
+    docker:
+      - image: cimg/android:2023.09
     steps:
       - checkout
       - run:
