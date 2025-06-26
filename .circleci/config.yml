@@ -1,13 +1,9 @@
 version: 2.1
 
-orbs:
-  android: circleci/android@2.3.0
-
 jobs:
   build:
-    executor:
-      name: android/android-machine
-      tag: 2023.09.1
+    machine:
+      image: android:2023.09.1
     steps:
       - checkout
       - run:
